@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Subject;
+use App\SubjectsValue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -63,7 +64,7 @@ class SubjectController extends Controller
      */
     public function edit(Subject $subjects)
     {
-        //
+        return view('subject.edit', ['subject' => $subjects]);
     }
 
     /**
@@ -75,7 +76,12 @@ class SubjectController extends Controller
      */
     public function update(Request $request, Subject $subjects)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string'
+        ]);
+        $subject = Subject::find($subjects->id);
+        $subject->update($request->all());
+        return Redirect::route('subject.index');
     }
 
     /**
@@ -86,6 +92,8 @@ class SubjectController extends Controller
      */
     public function destroy(Subject $subjects)
     {
-        //
+        SubjectsValue::where('subject_id', $subjects->id)->delete();
+        Subject::destroy($subjects->id);
+        return Redirect::route('subject.index');
     }
 }

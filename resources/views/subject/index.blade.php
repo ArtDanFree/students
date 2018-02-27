@@ -20,6 +20,7 @@
                 <tr>
                     <th>id</th>
                     <th>Название Предмета</th>
+                    <th>Действие</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,6 +29,14 @@
                         <tr>
                             <td>{{ $subject->id }}</td>
                             <td>{{ $subject->name }}</td>
+                            <td>
+                                <a class="btn btn-block btn-primary" href="{{ Route('subject.edit', $subject) }}">Редактировать предмет</a>
+                                <form action="{{ Route('subject.destroy', $subject) }}" method="post">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <input onClick="return confirm('Вы уверенны что хотите удалить предмет ?');" class="btn btn-block btn-danger" type="submit" value="Удалить предмет">
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 @endif
