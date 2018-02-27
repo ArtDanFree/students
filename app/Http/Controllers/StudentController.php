@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Group;
 use App\Student;
+use App\SubjectsValue;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -34,7 +35,7 @@ class StudentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -50,7 +51,7 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Student  $student
+     * @param  \App\Student $student
      * @return \Illuminate\Http\Response
      */
     public function show(Student $student)
@@ -61,7 +62,7 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Student  $student
+     * @param  \App\Student $student
      * @return \Illuminate\Http\Response
      */
     public function edit(Student $student)
@@ -74,8 +75,8 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Student  $student
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Student $student
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Student $student)
@@ -91,11 +92,13 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Student  $student
+     * @param  \App\Student $student
      * @return \Illuminate\Http\Response
      */
     public function destroy(Student $student)
     {
-        //
+        SubjectsValue::where('student_id', $student->id)->delete();
+        Student::destroy($student->id);
+        return Redirect::route('student.index');
     }
 }

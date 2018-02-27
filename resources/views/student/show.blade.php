@@ -18,6 +18,13 @@
                 <button type="button" class="btn btn-block btn-primary">Изменить оценки</button>
             </a>
         </div>
+        <div class="col-lg-2">
+        <form method="post" action="{{ Route('student.destroy', $student) }}">
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
+            <input class="btn btn-block btn-danger" onClick="return confirm('Вы уверенны что хотите удалить группу ?');" type="submit" value="Удалить студента">
+        </form>
+        </div>
     </div>
 @endsection
 @section('content')
