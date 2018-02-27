@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Group;
+use App\Student;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -96,6 +97,8 @@ class GroupController extends Controller
      */
     public function destroy(Group $group)
     {
-        //
+        Student::where('group_id', $group->id)->update(['group_id' => null]);
+        Group::destroy($group->id);
+        return Redirect::route('group.index');
     }
 }

@@ -38,7 +38,7 @@
                     <form action="{{ Route('group.destroy', $group->id) }}" method="post">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                        <input class="btn btn-block btn-danger" type="submit" value="Удалить группу">
+                        <input onClick="return confirm('Вы уверенны что хотите удалить группу ?');" class="btn btn-block btn-danger" type="submit" value="Удалить группу">
                     </form>
                     </td>
                 </tr>
