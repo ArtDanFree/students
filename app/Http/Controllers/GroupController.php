@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Group;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -65,7 +66,7 @@ class GroupController extends Controller
      */
     public function edit(Group $group)
     {
-        //
+        return view('group.edit', ['group' => $group]);
     }
 
     /**
@@ -77,7 +78,14 @@ class GroupController extends Controller
      */
     public function update(Request $request, Group $group)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string',
+            'description' => 'required|string'
+        ]);
+        $group = Group::find($group->id);
+        $group->update($request->all());
+        return Redirect::route('group.index');
+
     }
 
     /**

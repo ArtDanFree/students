@@ -13,7 +13,7 @@
 @section('content')
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Добавление новой группы</h3>
+            <h3 class="box-title">Редактирование группы</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
@@ -31,7 +31,7 @@
                     <textarea class="form-control" rows="3" placeholder="Описание Группы" name="description"required>{{ $group->description }}</textarea>
                 </div>
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Добавить</button>
+                    <button type="submit" class="btn btn-primary">Изменить</button>
                 </div>
             </div>
         </form>
