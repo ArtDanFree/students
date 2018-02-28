@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    protected $fillable = ['full_name', 'dob', 'group_id'];
+    protected $fillable = ['name', 'dob', 'group_id'];
 
     public function group()
     {
@@ -21,7 +21,7 @@ class Student extends Model
     public static function updateStudent($request, $id)
     {
         $student = Student::find($id);
-        $student->full_name = $request->full_name;
+        $student->name = $request->name;
         $student->dob = $request->dob;
         if (!empty($request->group_id)) {
             $student->group_id = $request->group_id;

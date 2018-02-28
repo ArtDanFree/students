@@ -41,7 +41,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'full_name' => 'required|string',
+            'name' => 'required|string',
             'dob' => 'required|string'
         ]);
         Student::create($request->all());
@@ -82,7 +82,7 @@ class StudentController extends Controller
     public function update(Request $request, Student $student)
     {
         $this->validate($request, [
-            'full_name' => 'required|string',
+            'name' => 'required|string',
             'dob' => 'required|string'
         ]);
         Student::updateStudent($request, $student->id);

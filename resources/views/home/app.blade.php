@@ -15,8 +15,8 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
-    @yield('css')
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+@yield('css')
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -43,32 +43,32 @@
             <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                 <span class="sr-only">Toggle navigation</span>
             </a>
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                </ul>
+            <!-- Left Side Of Navbar -->
+            <ul class="nav navbar-nav">
+            </ul>
 
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right" style="margin-right: 15px">
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
+            <!-- Right Side Of Navbar -->
+            <ul class="nav navbar-nav navbar-right" style="margin-right: 15px">
+                <!-- Authentication Links -->
+                @if (Auth::guest())
+                    <li><a href="{{ url('/login') }}">Login</a></li>
+                    <li><a href="{{ url('/register') }}">Register</a></li>
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <form action="{{ route('logout') }}" method="POST">
-                                    {{ csrf_field() }}
-                                    <button class="fa fa-btn fa-sign-out" type="submit">Logout</button>
-                                </form>
-                            </ul>
-                        </li>
+                        <ul class="dropdown-menu" role="menu">
+                            <form action="{{ route('logout') }}" method="POST">
+                                {{ csrf_field() }}
+                                <button class="fa fa-btn fa-sign-out" type="submit">Logout</button>
+                            </form>
+                        </ul>
+                    </li>
 
-                    @endif
-                </ul>
+                @endif
+            </ul>
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
@@ -102,7 +102,6 @@
                 <li><a href="{{ Route('group.index') }}"><i class="fa fa-circle-o text-red"></i> <span>Группы</span></a></li>
                 <li><a href="{{ Route('student.index') }}"><i class="fa fa-circle-o text-yellow"></i> <span>Студенты</span></a></li>
                 <li><a href="{{ Route('subject.index') }}"><i class="fa fa-circle-o text-aqua"></i> <span>Предметы</span></a></li>
-                <li><a href="/home"><i class="fa fa-circle-o text-aqua"></i> <span>Личный кабинет</span></a></li>
 
             </ul>
         </section>

@@ -4,7 +4,7 @@
 @section('content')
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Выставление оценок ученику: {{ $student->full_name }}</h3>
+            <h3 class="box-title">Выставление оценок ученику: {{ $student->name }}</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->

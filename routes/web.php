@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', 'homeController')->name('home');
 Route::resource('group', 'GroupController');
 Route::resource('student', 'StudentController');
 Route::resource('subject', 'SubjectController');
 Route::resource('subjectValue', 'SubjectValueController');
+Route::resource('gallery', 'GalleryController');
 
 Route::get('student/{student_id}/valueCreate', 'StudentValueController@create')->name('studentValue.create');
 Route::post('student/{student_id}/valueCreate', 'StudentValueController@store')->name('studentValue.store');
@@ -23,3 +23,8 @@ Route::post('student/{student_id}/valueCreate', 'StudentValueController@store')-
 Route::get('student/{student_id}/valueUpdate', 'StudentValueController@edit')->name('studentValue.edit');
 Route::post('student/{student_id}/valueUpdate', 'StudentValueController@update')->name('studentValue.Update');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@home');

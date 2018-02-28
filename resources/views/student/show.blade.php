@@ -54,7 +54,7 @@
                 </tr>
                         <tr>
                             <td>{{ $student->id }}</td>
-                            <td>{{ $student->full_name }}</td>
+                            <td>{{ $student->name }}</td>
                             <td>{{ $student->dob}}</td>
                             <td>{{ $student->group->name or  'Не состоит в группе'}}</td>
                             <td>

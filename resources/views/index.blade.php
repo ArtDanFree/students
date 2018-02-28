@@ -39,7 +39,7 @@
                                     warning
                                 @endif">
                                 <td>{{ $student->id }}</td>
-                                <td>{{ $student->full_name }}</td>
+                                <td>{{ $student->name }}</td>
                                 <td>{{ $student->dob}}</td>
                                 <td>
                                     @foreach($student->subject as $subjects)
@@ -96,7 +96,7 @@
                     @if($student->subject->avg('pivot.value') >=4.5)
                         <tr>
                     <td>
-                        {{ $student->full_name }} Средний балл: {{  $student->subject->avg('pivot.value')  }}
+                        {{ $student->name }} Средний балл: {{  $student->subject->avg('pivot.value')  }}
                     </td>
                 </tr>
                 @endif

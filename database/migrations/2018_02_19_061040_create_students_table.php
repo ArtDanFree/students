@@ -15,8 +15,11 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('full_name');
-            $table->string('dob');
+            $table->string('name');
+            $table->string('dob')->nullable();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->rememberToken();
             $table->integer('group_id')->unsigned()->nullable();
             $table->foreign('group_id')->references('id')->on('groups');
 

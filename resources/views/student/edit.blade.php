@@ -23,7 +23,7 @@
             <div class="box-body">
                 <div class="form-group">
                     <label for="exampleInputEmail1">ФИО</label>
-                    <input name="full_name" class="form-control" placeholder="Введите польне имя" value="{{ $student->full_name }}"
+                    <input name="name" class="form-control" placeholder="Введите польне имя" value="{{ $student->name }}"
                            required>
                 </div>
                 <div class="form-group">
