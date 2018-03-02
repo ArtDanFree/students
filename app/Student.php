@@ -18,6 +18,11 @@ class Student extends Model
         return $this->belongsToMany(Subject::class, 'subjects_values')->withPivot('value', 'id');
     }
 
+    public function gallery()
+    {
+        $this->hasMany(Gallery::class);
+    }
+
     public static function updateStudent($request, $id)
     {
         $student = Student::find($id);

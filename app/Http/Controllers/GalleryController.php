@@ -36,9 +36,9 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'img' => 'required|string',
+            'img' => 'required|image',
         ]);
-        Gallery::create($request->all());
+        Gallery::resizeAndCreate($request->file('img'));
         return \Redirect::route('home');
     }
 
