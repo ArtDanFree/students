@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Gallery;
 use App\Group;
 use App\Student;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -21,11 +20,6 @@ class HomeController extends Controller
         return view('index', ['groups' => $groups, 'students' => $students]);
     }
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -33,6 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $this->middleware('auth');
         $images = Gallery::all()->where('student_id', \Auth::id());
         return view('home.home', ['images' => $images]);
     }
