@@ -27,7 +27,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $this->middleware('auth');
         $images = Gallery::all()->where('student_id', \Auth::id());
         return view('home.home', ['images' => $images]);
     }
