@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content-header')
-    <div class="row">
+{{--    <div class="row">
         <div class="col-lg-3 col-sm-4">
             <a href="{{ Route('student.create') }}">
                 <button type="button" class="btn btn-block btn-default">Добавить студента</button>
             </a>
         </div>
-    </div>
+    </div>--}}
 @endsection
 @section('content')
     <div class="box">

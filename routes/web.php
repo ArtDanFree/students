@@ -12,7 +12,7 @@
 */
 
 Route::resource('group', 'GroupController');
-Route::resource('student', 'StudentController');
+Route::resource('student', 'StudentController')->except(['create', 'store']);
 Route::resource('subject', 'SubjectController');
 Route::resource('subjectValue', 'SubjectValueController');
 Route::resource('gallery', 'GalleryController');
